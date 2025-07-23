@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resilience Quiz</title>
+  <style>
+     .button-row { display: flex; justify-content: space-between; margin-top: 20px; }
+     #backBtn, #nextBtn { padding: 10px 20px; font-size: 16px; }
+     body { font-family: Arial; max-width: 700px; margin: 40px auto; }
+    .page { display: none; margin-bottom: 30px; }
+    .page.active { display: block; }
+    .scale-labels { display: flex; justify-content: space-between; font-size: 0.9em; margin-top: 5px; }
+    .scale-options { display: flex; justify-content: space-between; margin-top: 10px; }
+    .scale-options label { text-align: center; flex: 1; }
+    .results { font-weight: bold; margin-top: 20px; }
+    button { padding: 10px 20px; margin-top: 20px; }
+    /* NEW: Image styling inside questions */
+    .question img {
+      width: 700px;
+      height: auto;
+      margin-bottom: 20px;
+      display: block; /* to avoid inline spacing issues */
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro page -->
+  <div class="page active" id="introPage">
+    <h1>Welcome to the Resilience Quiz!</h1>
+    <p>
+      This quiz is designed to estimate your level of personal and professional resilience.<br />
+      <br />
+      For each statement, circle the number that best represents how you feel about the statement: <br />
+      <br />
+      <center><b>1 (Strongly Disagree)</b> to <b>7 (Strongly Agree)</b></center><br />
+      <br />
+      Please answer honestly and select the option that best reflects your opinion.<br />
+      <br />
+      <b>There are 25 questions in total.</b><br />
+      <br />
+      Click "Start" to begin.
+    </p>
+    <button id="startBtn">Start</button>
+  </div>
+
+
+
+  <!-- Quiz form -->
+  <form id="quizForm" class="page">
+    <div class="question">
+      <p>1. When I make plans, I follow through with them.</p>
+      <img src="https://res.cloudinary.com/debi2p5ek/image/upload/w_1400/v1/2558/60234-adobestock_285390487-bc4476f1.jpg" alt="Description" />
+      <div class="scale-options">
+        <label><input type="radio" name="q1" value="1"><br>1</label>
+        <label><input type="radio" name="q1" value="2"><br>2</label>
+        <label><input type="radio" name="q1" value="3"><br>3</label>
+        <label><input type="radio" name="q1" value="4"><br>4</label>
+        <label><input type="radio" name="q1" value="5"><br>5</label>
+        <label><input type="radio" name="q1" value="6"><br>6</label>
+        <label><input type="radio" name="q1" value="7"><br>7</label>
+      </div>
+      <div class="scale-labels">
+        <span>Strongly Disagree</span>
+        <span>Neutral</span>
+        <span>Strongly Agree</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>2. I usually manage one way or another.</p>
+      <img src="https://lifexchangesolutions.com/wp-content/uploads/2020/03/Resilience-Theory.jpg" alt="Description" />
+      <div class="scale-options">
+        <label><input type="radio" name="q2" value="1"><br>1</label>
+        <label><input type="radio" name="q2" value="2"><br>2</label>
+        <label><input type="radio" name="q2" value="3"><br>3</label>
+        <label><input type="radio" name="q2" value="4"><br>4</label>
+        <label><input type="radio" name="q2" value="5"><br>5</label>
+        <label><input type="radio" name="q2" value="6"><br>6</label>
+        <label><input type="radio" name="q2" value="7"><br>7</label>
+      </div>
+      <div class="scale-labels">
+        <span>Strongly Disagree</span>
+        <span>Neutral</span>
+        <span>Strongly Agree</span>
+      </div>
+     </div>
+
+    <div class="question">
+    <p>3. I am able to depend on myself more than anyone else.</p>
+    <img src="https://positive.b-cdn.net/wp-content/uploads/what-is-self-reliance.jpg" alt="Description" />
+    <div class="scale-options">
+      <label><input type="radio" name="q3" value="1"><br>1</label>
+      <label><input type="radio" name="q3" value="2"><br>2</label>
+      <label><input type="radio" name="q3" value="3"><br>3</label>
+      <label><input type="radio" name="q3" value="4"><br>4</label>
+      <label><input type="radio" name="q3" value="5"><br>5</label>
+      <label><input type="radio" name="q3" value="6"><br>6</label>
+      <label><input type="radio" name="q3" value="7"><br>7</label>
+    </div>
+     <div class="scale-labels">
+       <span>Strongly Disagree</span>
+       <span>Neutral</span>
+       <span>Strongly Agree</span>
+     </div>
+    </div>
+
+   <div class="question">
+   <p>4. Keeping interested in things is imporant to me.</p>
+   <img src="https://thebookbuff.com/wp-content/uploads/2021/08/A-person-reading-a-book-optimized.jpeg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q4" value="1"><br>1</label>
+     <label><input type="radio" name="q4" value="2"><br>2</label>
+     <label><input type="radio" name="q4" value="3"><br>3</label>
+     <label><input type="radio" name="q4" value="4"><br>4</label>
+     <label><input type="radio" name="q4" value="5"><br>5</label>
+     <label><input type="radio" name="q4" value="6"><br>6</label>
+     <label><input type="radio" name="q4" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>5. I can be on my own if I have to.</p>
+   <img src="https://www.spirituallivingforbusypeople.com/wp-content/uploads/2017/01/alone.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q5" value="1"><br>1</label>
+     <label><input type="radio" name="q5" value="2"><br>2</label>
+     <label><input type="radio" name="q5" value="3"><br>3</label>
+     <label><input type="radio" name="q5" value="4"><br>4</label>
+     <label><input type="radio" name="q5" value="5"><br>5</label>
+     <label><input type="radio" name="q5" value="6"><br>6</label>
+     <label><input type="radio" name="q5" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>6. I feel that I have accomplished things in life.</p>
+   <img src="https://d33e3vv6sjfy9c.cloudfront.net/media/3446/i960/81a8c69ea1ca87cd1341.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q6" value="1"><br>1</label>
+     <label><input type="radio" name="q6" value="2"><br>2</label>
+     <label><input type="radio" name="q6" value="3"><br>3</label>
+     <label><input type="radio" name="q6" value="4"><br>4</label>
+     <label><input type="radio" name="q6" value="5"><br>5</label>
+     <label><input type="radio" name="q6" value="6"><br>6</label>
+     <label><input type="radio" name="q6" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>7. I usually take things in stride.</p>
+   <img src="https://s.yimg.com/ny/api/res/1.2/_YYsNXcPG.kjGWR4foLrow--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://s.yimg.com/os/creatr-uploaded-images/2019-08/0cbf2d60-cb18-11e9-b9df-56b74edcfeed" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q7" value="1"><br>1</label>
+     <label><input type="radio" name="q7" value="2"><br>2</label>
+     <label><input type="radio" name="q7" value="3"><br>3</label>
+     <label><input type="radio" name="q7" value="4"><br>4</label>
+     <label><input type="radio" name="q7" value="5"><br>5</label>
+     <label><input type="radio" name="q7" value="6"><br>6</label>
+     <label><input type="radio" name="q7" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>8. I am friends with myself.</p>
+   <img src="https://emindful.com/wp-content/uploads/2020/04/How-to-be-happy-self-love-emindful.com_.png" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q8" value="1"><br>1</label>
+     <label><input type="radio" name="q8" value="2"><br>2</label>
+     <label><input type="radio" name="q8" value="3"><br>3</label>
+     <label><input type="radio" name="q8" value="4"><br>4</label>
+     <label><input type="radio" name="q8" value="5"><br>5</label>
+     <label><input type="radio" name="q8" value="6"><br>6</label>
+     <label><input type="radio" name="q8" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>9. I feel that I can handle many things at a time.</p>
+   <img src="https://cdn.unwire.pro/wp-content/uploads/2014/12/multitask.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q9" value="1"><br>1</label>
+     <label><input type="radio" name="q9" value="2"><br>2</label>
+     <label><input type="radio" name="q9" value="3"><br>3</label>
+     <label><input type="radio" name="q9" value="4"><br>4</label>
+     <label><input type="radio" name="q9" value="5"><br>5</label>
+     <label><input type="radio" name="q9" value="6"><br>6</label>
+     <label><input type="radio" name="q9" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>10. I am determined.</p>
+   <img src="https://img.freepik.com/premium-photo/determined-runner-racing-finish-line-with-focused-expression_167857-28805.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q10" value="1"><br>1</label>
+     <label><input type="radio" name="q10" value="2"><br>2</label>
+     <label><input type="radio" name="q10" value="3"><br>3</label>
+     <label><input type="radio" name="q10" value="4"><br>4</label>
+     <label><input type="radio" name="q10" value="5"><br>5</label>
+     <label><input type="radio" name="q10" value="6"><br>6</label>
+     <label><input type="radio" name="q10" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>11. I seldom wonder what the point of it all is.</p>
+   <img src="https://media.istockphoto.com/id/1388645967/photo/pensive-thoughtful-contemplating-caucasian-young-man-thinking-about-future-planning-new.jpg?s=612x612&w=0&k=20&c=Keax_Or9RivnYV_9VoOLjknWQP8iaxYXc4jS9rwBmcc=" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q11" value="1"><br>1</label>
+     <label><input type="radio" name="q11" value="2"><br>2</label>
+     <label><input type="radio" name="q11" value="3"><br>3</label>
+     <label><input type="radio" name="q11" value="4"><br>4</label>
+     <label><input type="radio" name="q11" value="5"><br>5</label>
+     <label><input type="radio" name="q11" value="6"><br>6</label>
+     <label><input type="radio" name="q11" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>12. I take things one day at a time.</p>
+   <img src="https://media.istockphoto.com/id/104240259/photo/day-calendar.jpg?s=612x612&w=0&k=20&c=qGvKYKM6SW1o-lGcizz3V5hI2NHHxepg7hZtYopqPHo=" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q12" value="1"><br>1</label>
+     <label><input type="radio" name="q12" value="2"><br>2</label>
+     <label><input type="radio" name="q12" value="3"><br>3</label>
+     <label><input type="radio" name="q12" value="4"><br>4</label>
+     <label><input type="radio" name="q12" value="5"><br>5</label>
+     <label><input type="radio" name="q12" value="6"><br>6</label>
+     <label><input type="radio" name="q12" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>13. I can get through difficult times because I've experienced difficulty before.</p>
+   <img src="https://s-i.huffpost.com/gen/933939/images/o-FRUSTRATED-facebook.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q13" value="1"><br>1</label>
+     <label><input type="radio" name="q13" value="2"><br>2</label>
+     <label><input type="radio" name="q13" value="3"><br>3</label>
+     <label><input type="radio" name="q13" value="4"><br>4</label>
+     <label><input type="radio" name="q13" value="5"><br>5</label>
+     <label><input type="radio" name="q13" value="6"><br>6</label>
+     <label><input type="radio" name="q13" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>14. I have self-discipline.</p>
+   <img src="https://gazettereview.com/wp-content/uploads/2017/01/weightlifting.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q14" value="1"><br>1</label>
+     <label><input type="radio" name="q14" value="2"><br>2</label>
+     <label><input type="radio" name="q14" value="3"><br>3</label>
+     <label><input type="radio" name="q14" value="4"><br>4</label>
+     <label><input type="radio" name="q14" value="5"><br>5</label>
+     <label><input type="radio" name="q14" value="6"><br>6</label>
+     <label><input type="radio" name="q14" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>15. I keep interested in things.</p>
+   <img src="https://www.mercyhome.org/wp-content/uploads/2020/05/girl-reading-pile-of-books.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q15" value="1"><br>1</label>
+     <label><input type="radio" name="q15" value="2"><br>2</label>
+     <label><input type="radio" name="q15" value="3"><br>3</label>
+     <label><input type="radio" name="q15" value="4"><br>4</label>
+     <label><input type="radio" name="q15" value="5"><br>5</label>
+     <label><input type="radio" name="q15" value="6"><br>6</label>
+     <label><input type="radio" name="q15" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>16. I can usually find something to laugh about.</p>
+   <img src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/rZJIMvhmliwmde8a6/face-of-senior-man-laughing-elderly-person-looks-at-camera-funny-story-about-old-times-dont-restrain-your-laughter_sq9hxzuye_thumbnail-1080_01.png" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q16" value="1"><br>1</label>
+     <label><input type="radio" name="q16" value="2"><br>2</label>
+     <label><input type="radio" name="q16" value="3"><br>3</label>
+     <label><input type="radio" name="q16" value="4"><br>4</label>
+     <label><input type="radio" name="q16" value="5"><br>5</label>
+     <label><input type="radio" name="q16" value="6"><br>6</label>
+     <label><input type="radio" name="q16" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>17. My belief in myself gets me through hard times.</p>
+   <img src="https://wp-media.patheos.com/blogs/mtvpastor/files/2015/08/8.31.15.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q17" value="1"><br>1</label>
+     <label><input type="radio" name="q17" value="2"><br>2</label>
+     <label><input type="radio" name="q17" value="3"><br>3</label>
+     <label><input type="radio" name="q17" value="4"><br>4</label>
+     <label><input type="radio" name="q17" value="5"><br>5</label>
+     <label><input type="radio" name="q17" value="6"><br>6</label>
+     <label><input type="radio" name="q17" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>18. In an emergency, I'm someone people can generally rely on.</p>
+   <img src="https://img.freepik.com/premium-photo/firefighter-putting-out-fire_662619-13.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q18" value="1"><br>1</label>
+     <label><input type="radio" name="q18" value="2"><br>2</label>
+     <label><input type="radio" name="q18" value="3"><br>3</label>
+     <label><input type="radio" name="q18" value="4"><br>4</label>
+     <label><input type="radio" name="q18" value="5"><br>5</label>
+     <label><input type="radio" name="q18" value="6"><br>6</label>
+     <label><input type="radio" name="q18" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>19. I can usually look at a situation in a number of ways.</p>
+   <img src="https://media.istockphoto.com/id/869651752/photo/looking-at-the-problem-from-multiple-perspectives.jpg?s=612x612&w=0&k=20&c=sskSwwjqwTGMA7feF5jV3U7y5VJGJpVVR8hNtGjM0jE=" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q19" value="1"><br>1</label>
+     <label><input type="radio" name="q19" value="2"><br>2</label>
+     <label><input type="radio" name="q19" value="3"><br>3</label>
+     <label><input type="radio" name="q19" value="4"><br>4</label>
+     <label><input type="radio" name="q19" value="5"><br>5</label>
+     <label><input type="radio" name="q19" value="6"><br>6</label>
+     <label><input type="radio" name="q19" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>20. Sometimes I make myself do things whether I want to or not.</p>
+   <img src="https://needrubbishremoval.com/wp-content/uploads/2022/06/Taking-Out-the-Trash-1.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q20" value="1"><br>1</label>
+     <label><input type="radio" name="q20" value="2"><br>2</label>
+     <label><input type="radio" name="q20" value="3"><br>3</label>
+     <label><input type="radio" name="q20" value="4"><br>4</label>
+     <label><input type="radio" name="q20" value="5"><br>5</label>
+     <label><input type="radio" name="q20" value="6"><br>6</label>
+     <label><input type="radio" name="q20" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>21. My life has meaning.</p>
+   <img src="https://bigthink.com/wp-content/uploads/2025/07/science-managing-meaning_compressed.jpg?resize=2048" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q21" value="1"><br>1</label>
+     <label><input type="radio" name="q21" value="2"><br>2</label>
+     <label><input type="radio" name="q21" value="3"><br>3</label>
+     <label><input type="radio" name="q21" value="4"><br>4</label>
+     <label><input type="radio" name="q21" value="5"><br>5</label>
+     <label><input type="radio" name="q21" value="6"><br>6</label>
+     <label><input type="radio" name="q21" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>22. I do not dwell on things I can't do anything about.</p>
+   <img src="https://domf5oio6qrcr.cloudfront.net/medialibrary/9514/iStock-656287338.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q22" value="1"><br>1</label>
+     <label><input type="radio" name="q22" value="2"><br>2</label>
+     <label><input type="radio" name="q22" value="3"><br>3</label>
+     <label><input type="radio" name="q22" value="4"><br>4</label>
+     <label><input type="radio" name="q22" value="5"><br>5</label>
+     <label><input type="radio" name="q22" value="6"><br>6</label>
+     <label><input type="radio" name="q22" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>23. When I'm in a difficult situation, I can usually find my way out of it.</p>
+   <img src="https://www.talentsmarteq.com/wp-content/uploads/2022/06/overcome-obstacles-and-win-in-life.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q23" value="1"><br>1</label>
+     <label><input type="radio" name="q23" value="2"><br>2</label>
+     <label><input type="radio" name="q23" value="3"><br>3</label>
+     <label><input type="radio" name="q23" value="4"><br>4</label>
+     <label><input type="radio" name="q23" value="5"><br>5</label>
+     <label><input type="radio" name="q23" value="6"><br>6</label>
+     <label><input type="radio" name="q23" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>24. I have enough energy to do what I have to.</p>
+   <img src="https://experiencelife.lifetime.life/wp-content/uploads/2021/02/ramp-up-your-energy.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q24" value="1"><br>1</label>
+     <label><input type="radio" name="q24" value="2"><br>2</label>
+     <label><input type="radio" name="q24" value="3"><br>3</label>
+     <label><input type="radio" name="q24" value="4"><br>4</label>
+     <label><input type="radio" name="q24" value="5"><br>5</label>
+     <label><input type="radio" name="q24" value="6"><br>6</label>
+     <label><input type="radio" name="q24" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+   <div class="question">
+   <p>25. It's okay if there are people who don't like me .</p>
+   <img src="https://3.bp.blogspot.com/-SEeIecunkCI/VirOOBlg-QI/AAAAAAAAVC0/_4j2ClTnt9g/s1600/bullying.jpg" alt="Description" />
+   <div class="scale-options">
+     <label><input type="radio" name="q25" value="1"><br>1</label>
+     <label><input type="radio" name="q25" value="2"><br>2</label>
+     <label><input type="radio" name="q25" value="3"><br>3</label>
+     <label><input type="radio" name="q25" value="4"><br>4</label>
+     <label><input type="radio" name="q25" value="5"><br>5</label>
+     <label><input type="radio" name="q25" value="6"><br>6</label>
+     <label><input type="radio" name="q25" value="7"><br>7</label>
+   </div>
+   <div class="scale-labels">
+     <span>Strongly Disagree</span>
+     <span>Neutral</span>
+     <span>Strongly Agree</span>
+   </div>
+   </div>
+
+
+
+
+<div class="button-row">
+  <button type="button" id="backBtn">Back</button>
+  <button type="button" id="nextBtn">Next</button>
+</div>
+
+  </form>
+
+  <div class="results page" id="results"></div>
+
+<script>
+  const introPage = document.getElementById("introPage");
+  const startBtn = document.getElementById("startBtn");
+  const quizForm = document.getElementById("quizForm");
+  const questions = quizForm.querySelectorAll(".question");
+  const nextBtn = document.getElementById("nextBtn");
+  const backBtn = document.getElementById("backBtn");
+  const results = document.getElementById("results");
+
+  let currentQuestion = 0;
+
+  function showQuestion(index) {
+    questions.forEach((q, i) => {
+      q.style.display = (i === index) ? "block" : "none";
+    });
+
+    // Show/hide back button based on position
+    backBtn.style.display = index === 0 ? "none" : "inline-block";
+
+    // Optional: change button text on last question
+    nextBtn.textContent = index === questions.length - 1 ? "Submit" : "Next";
+  }
+
+  function showPage(page) {
+    document.querySelectorAll(".page").forEach(p => p.style.display = "none");
+    page.style.display = "block";
+  }
+
+  startBtn.addEventListener("click", () => {
+    showPage(quizForm);
+    currentQuestion = 0;
+    showQuestion(currentQuestion);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    const current = questions[currentQuestion];
+    const selected = current.querySelector("input[type=radio]:checked");
+
+    if (!selected) {
+      alert("Please select a response before continuing.");
+      return;
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+      showQuestion(currentQuestion);
+    } else {
+      quizForm.style.display = "none";
+
+      let totalScore = 0;
+      questions.forEach((q, i) => {
+        const name = `q${i + 1}`;
+        const val = parseInt(document.querySelector(`input[name=${name}]:checked`).value);
+        totalScore += val;
+      });
+
+      let level, description;
+      if (totalScore >= 150) {
+        level = "High";
+        description = "Your responses reflect a strong level of resilience. You likely adapt well to stress, recover quickly from setbacks, and maintain a positive outlook in the face of challenges. This resilience can be a powerful asset in both personal growth and professional success.";
+
+      } else if (totalScore >= 126) {
+        level = "Moderate";
+        description = "Your responses suggest a balanced level of resilience. You may handle stress and adversity well in some situations while finding others more difficult. This awareness can be an important foundation for strengthening your resilience further through intentional strategies and support.";
+      } else {
+        level = "Developing";
+        description = "Your responses indicate that you may be in the process of building or strengthening your resilience. Everyone faces challenges differently, and recognizing areas for growth is a meaningful first step. There are many tools and techniques that can help you build confidence and navigate stress more effectively.";
+      }
+
+      results.innerHTML = `
+        <h2>Results</h2>
+        <p>Your total score is <strong>${totalScore}</strong>.</p>
+        <img src="https://wallpapers.com/images/hd/resilient-person-conquering-a-tall-mountain-45gcz8cxnv2l800v.jpg" alt="Description" />
+        <p>Level: <strong>${level}</strong></p>
+        <p>${description}</p>
+      `;
+
+      showPage(results);
+    }
+  });
+
+  backBtn.addEventListener("click", () => {
+    if (currentQuestion > 0) {
+      currentQuestion--;
+      showQuestion(currentQuestion);
+    }
+  });
+
+  showPage(introPage);
+</script>
+
+</body>
+</html>
